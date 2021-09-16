@@ -1,16 +1,13 @@
 import axios from "axios";
 
-export class RestSearch {
+var baseUri = "https://yz8l6z59zh.execute-api.us-east-1.amazonaws.com/prod?";//path de dynamo DB
 
-    baseUri = "https://yz8l6z59zh.execute-api.us-east-1.amazonaws.com/prod?";//path de dynamo DB
+export class RestSearch{
 
-    constructor(){
-
-    }
+    getData = (tienda, referencia) =>{
     
-    getData(tienda, referencia){
-        
         axios.get(this.baseUri + 'tienda=' + tienda + '&referencia=' + referencia)
+        .then(result => (console.log(result)))
+        .catch(console.log())
     }
-
 }

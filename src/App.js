@@ -1,7 +1,12 @@
 import './App.css';
 import React, {Fragment, useState} from 'react';
+// import { RestSearch } from './API/dynamoDB';
+import axios from "axios";
+
+var baseUri = "https://yz8l6z59zh.execute-api.us-east-1.amazonaws.com/prod?";//path de dynamo DB
 
 function App() {
+  
   return (
     <div className="App">
       <div className="App-header">
@@ -30,15 +35,17 @@ const Buscador = () =>{
     })
   }
 
-  const buscarDatos = (event) => {
+  const buscarDatos_axios = (event) => {
     event.preventDefault();
 
-    
+    axios.get(baseUri + 'tienda=' + datoSearch.tienda + '&referencia=' + datoSearch.referencia)
+    .then(result => (console.log(result.data)))
+    .catch(console.log())
   }
   
   return (
     <Fragment>
-      <form onSubmit={buscarDatos}>
+      <form onSubmit={buscarDatos_axios}>
 
         <div className="form-container">
           <div className="form-group">
