@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "156a587b-3847-4a09-bf2b-ff3b9a90a8b8",
+		"name": "BusquedaDocumentoDte",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save Invoice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tienda\": \"1\",\r\n  \"referencia\": \"1U00002\",\r\n  \"firma\": \"C3F96F99-A22B-4A24-8D84-552348EDB8B3\"\r\n}"
+				},
+				"url": {
+					"raw": "https://yz8l6z59zh.execute-api.us-east-1.amazonaws.com/prod",
+					"protocol": "https",
+					"host": [
+						"yz8l6z59zh",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get invoice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://yz8l6z59zh.execute-api.us-east-1.amazonaws.com/prod?tienda=1&referencia=1U00002",
+					"protocol": "https",
+					"host": [
+						"yz8l6z59zh",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod"
+					],
+					"query": [
+						{
+							"key": "tienda",
+							"value": "1"
+						},
+						{
+							"key": "referencia",
+							"value": "1U00002"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

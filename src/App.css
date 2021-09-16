@@ -2,37 +2,63 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: #3E87F6;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.buscadorCuadro {
+  border: #2F517E solid 1px;
+  border-radius: 25px;
+  background-color: #EAE9FA;
+  height: 315px;
+  width: 350px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.h1-Title {
+  color: black;
+  font-size: 25px !important;
+  font: 125% sans-serif;
+}
+
+.form-container {
+  padding-top: 10px;
+}
+
+.form-group {
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.form-control {
+  background-color: #EAE9FA;
+  border-radius: 10px;
+  border: rgb(145, 144, 144) solid 2px;
+  width: 260px;
+  height: 30px;
+  padding-left: 15px;
+  text-decoration: none;
+}
+
+.btn-Buscar{
+  background-color: #6366F1;
+  color: #ffffff;
+  border-radius: 10px;
+  font-weight: bold;
+  width: 280px;
+  height: 35px;
+  font-size: 16px;
+}
+
+.parraf {
+  justify-content: left;
+  font-size: 18px;
+  color: black;
+  font-family: 'Segoe UI';
+  font-style: oblique;
 }
