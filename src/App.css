@@ -1,8 +1,6 @@
-.App {
-  text-align: center;
-}
 
-.App-header {
+.Body{
+  text-align: center;
   background-color: #3E87F6;
   min-height: 100vh;
   display: flex;
@@ -61,4 +59,10 @@
   color: black;
   font-family: 'Segoe UI';
   font-style: oblique;
+}
+
+.modal {
+  justify-content: center;
+  text-align: center;
+  position: relative;
 }
