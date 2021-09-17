@@ -4,6 +4,7 @@ import React, {Fragment, useState} from 'react';
 import axios from "axios";
 
 var baseUri = "https://yz8l6z59zh.execute-api.us-east-1.amazonaws.com/prod?";//path de dynamo DB
+var foundSearch;
 
 function App() {
   
@@ -14,7 +15,7 @@ function App() {
           <h1 className="h1-Title">Ingresa Datos</h1>
           <Buscador />
           <hr/>
-          <p className="parraf">Resultado...</p>
+          <p className="parraf">Resultado...</p>          
         </div>
       </div>
     </div>
@@ -33,14 +34,33 @@ const Buscador = () =>{
       ...datoSearch,
       [event.target.name] : event.target.value,
     })
+    
+    console.log(datoSearch)
   }
 
   const buscarDatos_axios = (event) => {
     event.preventDefault();
 
     axios.get(baseUri + 'tienda=' + datoSearch.tienda + '&referencia=' + datoSearch.referencia)
-    .then(result => (console.log(result.data)))
-    .catch(console.log())
+    .then(result => {
+       
+      let expReg = new RegExp(".pdf" || "files" || "pdf", "ig");
+      let expReg2 = new RegExp("report" || "documento" || "document", "ig");
+
+      if(expReg.test(result.data.url) != true){
+        if(expReg2.test(result.data.url) != true){
+          console.log('no hay conincidencias')
+        }else if(expReg2.test(result.data.url) === true){
+          foundSearch = result;
+          console.log('concidencia en la url es un pdf opcion 2 ', foundSearch);
+          ConditionalView(true);
+        }
+      }else if(expReg.test(result.data.url) === true){
+        foundSearch = result;
+        console.log('concidencia en la url es un pdf opcion 1 ', foundSearch);
+        ConditionalView(true);
+      }
+    }).catch(console.log());
   }
   
   return (
@@ -64,4 +84,20 @@ const Buscador = () =>{
   )
 }
 
-export default App;
+function ConditionalView (condicion) {
+  
+  if(condicion != null || undefined){
+    return (
+      <App />
+    )
+  }else if(condicion === true){
+    return (
+      <div>
+        <h1>Se obtuvo una url valida</h1>
+        <button className="btn-Buscar" type="submit" >Volver</button>
+      </div>
+    )
+  }
+}
+
+export default ConditionalView;

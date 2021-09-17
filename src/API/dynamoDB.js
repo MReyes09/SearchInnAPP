@@ -6,7 +6,7 @@ export class RestSearch{
 
     getData = (tienda, referencia) =>{
     
-        axios.get(this.baseUri + 'tienda=' + tienda + '&referencia=' + referencia)
+        return axios.get(this.baseUri + 'tienda=' + tienda + '&referencia=' + referencia)
         .then(result => (console.log(result)))
         .catch(console.log())
     }

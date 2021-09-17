@@ -1,0 +1,27 @@
+//if(datos.url){
+//
+      //  let resultado = datos.url.split('.');
+      //  let contador = 0;
+//
+      //  resultado.forEach(dato => {
+      //    contador = contador + 1;
+      //    if(dato === 'pdf'){
+      //      alert('pdf encontrado');
+      //      console.log(foundSearch)
+//
+      //    }else if(resultado.length === contador){
+      //      alert('PDF no encontrado o URL incorrecta');
+      //      console.log(result)
+      //    }
+      //  })
+//
+        //console.log('url: '+ datos.url)
+
+      //}else{
+      //  alert('La respuesta no proporciona URL')
+      //}
+
+url {
+    https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+    https://report.feel.com.gt/ingfacereport/ingfacereport_documento?uuid=FE834656-6A65-41F6-A30E-96E9D26AF97D
+}
