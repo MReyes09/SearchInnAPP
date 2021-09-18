@@ -25,3 +25,14 @@ url {
     https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
     https://report.feel.com.gt/ingfacereport/ingfacereport_documento?uuid=FE834656-6A65-41F6-A30E-96E9D26AF97D
 }
+
+
+    
+    <Modal className="Modal" isOpen={datoSearch.abierto}>
+        <ModalHeader>
+          <h1>Resultados de la busqueda</h1>
+        </ModalHeader>
+        <ModalBody>
+          <object type="application/pdf" data={urlSearch}> </object>
+        </ModalBody>
+    </Modal>

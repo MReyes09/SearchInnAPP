@@ -2,7 +2,7 @@ import './App.css';
 import React, {Fragment, useState} from 'react';
 // import { RestSearch } from './API/dynamoDB';
 import axios from "axios";
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 var baseUri = "https://yz8l6z59zh.execute-api.us-east-1.amazonaws.com/prod?";//path de dynamo DB
 var foundSearch;
@@ -34,7 +34,7 @@ function App (){
     
       if(expReg.test(result.data.url) != true){
         if(expReg2.test(result.data.url) != true){
-          console.log('no hay conincidencias')
+          alert('no hay conincidencias')
         }else if(expReg2.test(result.data.url) === true){
           foundSearch = result;
           urlSearch = result.data.url;
@@ -42,7 +42,6 @@ function App (){
             ...datoSearch,
             abierto: !datoSearch.abierto
           })
-          console.log(foundSearch);
         }
       }else if(expReg.test(result.data.url) === true){
         foundSearch = result;
@@ -51,12 +50,18 @@ function App (){
           ...datoSearch,
           abierto: !datoSearch.abierto
         })
-        console.log(foundSearch);
       }
     }).catch(console.log());
   }
 
+  const btnCerrar  = (event)  =>{
+    setDatos({
+      ...datoSearch,
+      abierto: !datoSearch.abierto
+    })
+  }
   return (
+    <>
     <div className="Body">
       <div className="buscadorCuadro">
         <h1 className="h1-Title">Ingresa Datos</h1>
@@ -80,16 +85,23 @@ function App (){
         <hr/>
         <p className="parraf">Resultado...</p>          
       </div>
-      
-      <Modal className="Modal" isOpen={datoSearch.abierto}>
-        <ModalHeader>
-          <h1>Resultados de la busqueda</h1>
-        </ModalHeader>
-        <ModalBody>
-          <object type="application/pdf" data={urlSearch}> </object>
-        </ModalBody>
+    </div>
+    
+    <div>
+      <Modal isOpen={datoSearch.abierto}>
+          <ModalHeader>
+            <button className="close" onClick={btnCerrar}>&times;</button>
+            <h1>Resultados de la busqueda</h1>
+          </ModalHeader>
+          <ModalBody >
+            <object className="pdfView" type="application/pdf" data={urlSearch}> </object>
+          </ModalBody>
+          <ModalFooter>
+            <h3>tienda: {datoSearch.tienda} / referencia: {datoSearch.referencia}</h3>
+          </ModalFooter>
       </Modal>
     </div>
+    </>
   )
   
 }
