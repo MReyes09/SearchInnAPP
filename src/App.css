@@ -61,6 +61,7 @@
   color: black;
   font-family: 'Segoe UI';
   font-style: oblique;
+  text-decoration: none;
 }
 
 .modal {
@@ -135,6 +136,38 @@
 .pdfView {
   margin: auto;
   display: block;
-  width: 850px;
-  height: 100vh;
+  width: 80%;
+  height: 75vh;
+}
+
+.a {
+  color: black;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button3 {
+  background-color: rgb(125, 245, 94); 
+  color: black;
+}
+
+.button3:hover {
+  background-color: #ee8352;
+  color: white;
+}
+
+.button:disabled{
+  background-color: grey;
 }
