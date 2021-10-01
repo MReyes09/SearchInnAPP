@@ -15,7 +15,7 @@ function App (){
     tienda: '',
     referencia: '',
     abierto: false,
-    url: '',
+    url: null,
     estado: true,
   })
 
@@ -77,6 +77,7 @@ function App (){
         setDatos({
           ...datoSearch,
           url: result.data.url,
+          estado: false,
         })
 
         if(condicion === false){
@@ -98,6 +99,12 @@ function App (){
             icon: 'success',
           });
         }
+      }else{
+        setDatos({
+          ...datoSearch,
+          estado: true,
+          url: null,
+        })
       }
     }).catch(console.log());
   }
@@ -127,7 +134,7 @@ function App (){
             </div>
           </div>
 
-          <button className="btn-Buscar" type="submit">Buscar</button>
+          <button className="btn-Buscar" type="submit" >Buscar</button>
         </form>
         <hr/>
         { condicion ? <button className="button button3" disabled={datoSearch.estado}><a className="parraf" target="_self" href={datoSearch.url} download="pdf" > Descarga el PDF </a> </button>: 
